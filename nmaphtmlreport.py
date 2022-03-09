@@ -16,30 +16,31 @@ while choice !='q':
     choice = input("\nWhat would you like to do ")
 
     if choice =='1':
-        print ('processing.....')
+        print ("\nprocessing.....")
         file_ = open('nmap_output.txt', 'w+')
         subprocess.run([command, '-sS', target, '-oX', filename ], stdout=file_)
-        print ('completed')
+        print ("\ncompleted")
         file_.close()
         f = open(outputfilename, 'w+')
         subprocess.run(['xsltproc', filename,], stdout=f)
         f.close()
         print('Your HTML report', outputfilename, 'is ready the below location')
-        A = subprocess.run(["pwd"])
+        print("\n====================================")
+        subprocess.run(["pwd"])
+        print('====================================')
         break
 
     elif choice == '2':
-#else:
-        print ('processing.....')
+        print ("\nprocessing.....")
         file_ = open('nmap_output.txt', 'w+')
         subprocess.run([command, '-A', '-Pn', target, '-oX', filename ], stdout=file_)
-        print ('completed')
+        print ("\ncompleted")
         file_.close()
         f = open(outputfilename, 'w+')
         subprocess.run(['xsltproc', filename,], stdout=f)
         f.close()
         print('Your HTML report', outputfilename, 'is ready the below location')
+        print("\n====================================")
         subprocess.run(["pwd"])
+        print('====================================')
         break
-#print('Your HTML report', outputfilename, 'is ready the below location')
-
